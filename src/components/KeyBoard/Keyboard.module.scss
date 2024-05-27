@@ -1,0 +1,66 @@
+.keyboard{
+  padding: 10px;
+  gap: 10px;
+  max-width: 100%;
+  display: grid;
+  grid-auto-rows: 1fr;
+  grid-template-columns: repeat(18,minmax(30px, 1fr));
+}
+
+.letter{
+  font-size: 1.65em;
+  font-weight: 700;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  grid-column: span 2;
+  aspect-ratio: 1;
+
+  &-input{
+    cursor: pointer;
+    border: 3px solid #f8f8ff;
+    background: #EEEEFF;
+    color: #1F2544;
+    box-shadow: inset 0 0 10px #212134, inset 0 3px 20px #838489, 0 0 30px rgba(0, 0, 0, 0.8), 0 10px 10px rgba(0, 0, 0, 0.7);
+    transition: all 0.2s ease-in;
+    will-change: transform;
+
+    &:active{
+      transform: scale(0.9);
+      box-shadow: inset 0 0 10px #212134, inset 0 3px 10px #838489, 0 0 20px rgba(0, 0, 0, 0.8), 0 5px 5px rgba(0, 0, 0, 0.7);
+    }
+  }
+
+  &-output{
+    transition: all 0.2s ease;
+    background-color: #272829;
+  }
+}
+
+.active{
+  background-color: #F4CE14;
+  box-shadow: inset 0 -3px 25px #242424c9, inset 0 0px 5px #3d3d3db6, 0 0 20px rgb(145, 127, 39), 0 5px 5px rgba(145,127, 29);
+}
+
+@media (min-width: 500px) {
+  .keyboard > :nth-child(10){
+    grid-column-start: 2;
+    grid-column-end: 4;
+  }
+}
+
+@media (max-width: 500px) {
+  .keyboard{
+    grid-template-columns: repeat(14,minmax(25px, 1fr));
+
+    & > :nth-child(8){
+      grid-column-start: 2;
+      grid-column-end: 4;
+    }
+
+    & > :nth-child(21){
+      grid-column-start: 2;
+      grid-column-end: 4;
+    }
+  }
+}
