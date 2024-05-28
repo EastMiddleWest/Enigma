@@ -1,3 +1,4 @@
+import { createPortal } from 'react-dom';
 import styles from './Sidebar.module.scss';
 import Paper from '../Paper/Paper';
 import classNames from 'classnames';
@@ -25,11 +26,12 @@ const Sidebar = ({ open, toggleOpen }: Props) => {
   const decrypted = useAppSelector(decryptedMessage)
 
   return (
-    <>
+    createPortal(
+    <div className={styles.portal}>
     <aside className={asideClName}>
       <div className={styles.container}>
         <h2>Encrypted</h2>
-        <Paper value={encrypted}/>
+        <Paper value={encrypted} />
         <h2>Decrypted</h2>
         <Paper value={decrypted} />
       </div>
@@ -39,7 +41,9 @@ const Sidebar = ({ open, toggleOpen }: Props) => {
         <img src={hook} alt='hook' width={50} height={50} />
       </div>
     </div>
-    </>
+    </div>
+    , document.body
+    )
   )
 }
 

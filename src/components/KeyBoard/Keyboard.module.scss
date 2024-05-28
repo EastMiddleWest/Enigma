@@ -42,25 +42,53 @@
   box-shadow: inset 0 -3px 25px #242424c9, inset 0 0px 5px #3d3d3db6, 0 0 20px rgb(145, 127, 39), 0 5px 5px rgba(145,127, 29);
 }
 
-@media (min-width: 500px) {
+@media (min-width: 1000px) {
   .keyboard > :nth-child(10){
     grid-column-start: 2;
     grid-column-end: 4;
   }
 }
 
-@media (max-width: 500px) {
+@media (min-width: 700px) and (max-width: 1000px) {
   .keyboard{
+    gap: 8px;
     grid-template-columns: repeat(14,minmax(25px, 1fr));
 
-    & > :nth-child(8){
+    & > :nth-child(8), :nth-child(21){
       grid-column-start: 2;
       grid-column-end: 4;
     }
 
-    & > :nth-child(21){
+    // & > :nth-child(24){
+    //   grid-column-start: 3;
+    //   grid-column-end: 5;
+    // }
+
+    // & > :nth-child(21){
+    //   grid-column-start: 2;
+    //   grid-column-end: 4;
+    // }
+  }
+}
+
+@media (max-width: 700px) {
+  .keyboard{
+    gap: 8px;
+    grid-template-columns: repeat(10,minmax(30px, 1fr));
+
+    & > :nth-child(6), :nth-child(15), :nth-child(24){
       grid-column-start: 2;
       grid-column-end: 4;
     }
+
+    & > :nth-child(24){
+      grid-column-start: 3;
+      grid-column-end: 5;
+    }
+
+    // & > :nth-child(21){
+    //   grid-column-start: 2;
+    //   grid-column-end: 4;
+    // }
   }
 }
